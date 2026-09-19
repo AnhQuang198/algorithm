@@ -7,14 +7,26 @@ public class SelectionSort {
 
         int[] intArray = {20, 35, -15, 7, 55, 1, -22};
 
-        for(int lastUnsortedIndex = intArray.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--) { //duyệt từ đầu mảng đến cuối mảng ở lần đầu, sau 1 vòng giảm length đi 1 đơn vị. Vì phần tử ở cuối là lớn nhất
-            int maxNumberIdx = 0;
-            for (int i = 1; i <= lastUnsortedIndex; i++) { //duyệt mảng và tìm ra index của số lớn nhất, sau đó đổi chỗ với vị trí phần tử cuối cùng của mảng
-                if (intArray[maxNumberIdx] < intArray[i]) {
-                    maxNumberIdx = i;
+//        for(int lastUnsortedIndex = intArray.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--) { //duyệt từ đầu mảng đến cuối mảng ở lần đầu, sau 1 vòng giảm length đi 1 đơn vị. Vì phần tử ở cuối là lớn nhất
+//            int maxNumberIdx = 0;
+//            for (int i = 1; i <= lastUnsortedIndex; i++) { //duyệt mảng và tìm ra index của số lớn nhất, sau đó đổi chỗ với vị trí phần tử cuối cùng của mảng
+//                if (intArray[maxNumberIdx] < intArray[i]) {
+//                    maxNumberIdx = i;
+//                }
+//            }
+//            swap(intArray, maxNumberIdx, lastUnsortedIndex);
+//        }
+
+        for (int i = 0; i < intArray.length; i++) {
+            int indexHighestElement = 0;
+            int maxNumber = intArray[indexHighestElement];
+            for (int j = 0; j < intArray.length - i; j++) {
+                if (intArray[j] > maxNumber) {
+                    maxNumber = intArray[j];
+                    indexHighestElement = j;
                 }
             }
-            swap(intArray, maxNumberIdx, lastUnsortedIndex);
+            swap(intArray, intArray.length - i - 1, indexHighestElement);
         }
 
         for (int i = 0; i < intArray.length; i++) {

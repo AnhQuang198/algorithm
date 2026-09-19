@@ -7,10 +7,18 @@ public class BubbleSort {
 
         int[] intArray = {20, 35, -15, 7, 55, 1, -22};
 
-        for (int lastUnsortedIndex = intArray.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--) { //duyệt từ đầu đến cuối, sau mỗi vòng giảm length đi 1 vì phần tử cuối cùng đc so sánh và là lớn nhất
-            for (int i = 0; i < lastUnsortedIndex; i++) {
-                if (intArray[i] > intArray[i + 1]) { //so sánh 2 số liền kề nhau, nếu số nào lớn hơn thì đẩy về bên phải
-                    swap(intArray, i, i + 1);
+//        for (int lastUnsortedIndex = intArray.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--) { //duyệt từ đầu đến cuối, sau mỗi vòng giảm length đi 1 vì phần tử cuối cùng đc so sánh và là lớn nhất
+//            for (int i = 0; i < lastUnsortedIndex; i++) {
+//                if (intArray[i] > intArray[i + 1]) { //so sánh 2 số liền kề nhau, nếu số nào lớn hơn thì đẩy về bên phải
+//                    swap(intArray, i, i + 1);
+//                }
+//            }
+//        }
+
+        for (int i = 0; i < intArray.length; i++) {
+            for (int j = 0; j < intArray.length - i - 1; j++) {
+                if (intArray[j] > intArray[j + 1]) {
+                    swap(intArray, j, j + 1);
                 }
             }
         }
