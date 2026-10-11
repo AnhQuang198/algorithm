@@ -19,6 +19,7 @@ public class IsSubsequence {
 
         String s4 = "", t4 = "ahbgdc";
         System.out.println(isSubsequenceBruteForce(s4, t4));
+        System.out.println(isSubsequence(s4, t4));
     }
 
 
@@ -51,5 +52,29 @@ public class IsSubsequence {
             }
         }
         return qData.isEmpty();
+    }
+
+    /**
+     * TC=O(N)
+     * SC=O(1)
+     * Sử dụng Two Pointer, 1 left chạy trên chuỗi s, 1 right chạy trên chuỗi t
+     * Nếu s.charAt(left) = t.charAt(right) thì tăng left lên 1 và right lên 1
+     * nếu không bằng thì tăng right lên 1
+     * duyệt hết length của left và right, nếu left = s.length thì là subsequence vì ko còn chữ cái nào bị miss
+     * @param s
+     * @param t
+     * @return
+     */
+    public static boolean isSubsequence(String s, String t) {
+        int left = 0;
+        int right = 0;
+
+        while (left < s.length() && right < t.length()) {
+            if (s.charAt(left) == t.charAt(right)) {
+                left++;
+            }
+            right++;
+        }
+        return left == s.length();
     }
 }
