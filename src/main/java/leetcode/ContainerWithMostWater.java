@@ -9,7 +9,9 @@ public class ContainerWithMostWater {
     /**
      * TC = O(N)
      * SC = O(1)
-     * Sử dụng 2 con trỏ left và right để duyệt qua array.
+     * Sử dụng 2 con trỏ left và right để duyệt qua array. Với width là length dài nhất của array, so sánh số ở vị trí left và right,
+     * nếu left nhỏ hơn thì tăng vị trí left và ngược lại nếu right nhỏ hơn thì giảm vị trí right. Vì width đã là chiều dài lớn (lúc đầu = length)
+     * nên nếu cột left hoặc right nhỏ hơn, thì cần dịch chuyển cột nhỏ hơn để tìm vùng lớn hơn
      * @param height
      * @return
      */
